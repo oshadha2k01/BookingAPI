@@ -7,7 +7,7 @@ import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Enable Global Validation
+  //Global Validation
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -16,12 +16,12 @@ async function bootstrap() {
     }),
   );
 
-  // Enable Global Exception Filter
+
   app.useGlobalFilters(new HttpExceptionFilter());
 
   // Swagger Configuration
   const config = new DocumentBuilder()
-    .setTitle('EN2H Booking API')
+    .setTitle('Booking API')
     .setDescription('REST API for managing services and customer bookings')
     .setVersion('1.0')
     .addBearerAuth()
